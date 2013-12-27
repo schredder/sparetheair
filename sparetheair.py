@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from bs4 import BeautifulSoup
-import requests, sys, os
+import requests, sys, os, uuid
 from datetime import datetime, date, timedelta
 from icalendar import Calendar, Event
 
@@ -48,13 +48,18 @@ class StaCal:
             with open(self.__stacalfile, 'r') as vcal:
                 self.calendar = Calendar.from_ical(vcal.read())
         except IOError:
+            # init the calendar...
             self.calendar = Calendar()
+            self.calendar.add('prodid', '-//SpareTheAir Cal - ESS//eschro.com//')
+            self.calendar.add('version', '1.0')
 
     def addtoday(self):
+        for event in self.calendar.walk():
+            print event['dtstart'] == date.today()
         sta = SpareTheAir(self.__staURL)
         if sta.inEffect:
             today = Event()
-            today.add('summary', sta.message)
+            today.add('summary', "Spare The Air " + sta.message)
             today.add('dtstart', sta.today.date())
             today.add('dtend', sta.today.date() + timedelta(days=1))
             self.calendar.add_component(today)
