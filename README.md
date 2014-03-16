@@ -8,7 +8,8 @@ It reads the RSS Feed: http://www.baaqmd.gov/Feeds/AlertRSS.aspx
 I run this daily, copy the iCal file onto a personal web server, and subscribe to it using OS X's and iOS's Calendar
 
 ## Usage
-Run `bin/sparetheair`
+* Run `bin/sparetheair`to generate or add to `./stacal.ics`
+* Run `bin/run_unittests` to run tests
 
 ## Requirements
 * Tested using Python 2.7.6
