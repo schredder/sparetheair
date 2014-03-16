@@ -2,7 +2,7 @@
 
 A tool to publish SF Bay Area Spare The Air data as an ical
 
-It reads the RSS Feed: http://www.baaqmd.gov/Feeds/AlertRSS.aspx
+It reads the RSS Feed: http://www.baaqmd.gov/Feeds/AlertRSS.aspx  
 ...and puts it into an iCal file.
 
 I run this daily, copy the iCal file onto a personal web server, and subscribe to it using OS X's and iOS's Calendar
