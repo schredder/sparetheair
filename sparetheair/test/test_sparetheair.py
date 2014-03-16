@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 import unittest
+from datetime import datetime, date
 from .. import sparetheair
 
 class SpareTheAirTester(unittest.TestCase):
     def setUp(self):
-        self.staUrl = "http://www.baaqmd.gov/Feeds/AlertRSS.aspx"
+        self.staUrl = "http://www.eschro.com/stacal/valid.xml"
         self.sta = sparetheair.SpareTheAir(self.staUrl)
 
     def test_init(self):
@@ -25,13 +26,17 @@ class SpareTheAirTester(unittest.TestCase):
             sparetheair.SpareTheAir("host:/test/cant/do/it")
 
 
-    # def test___getStaStatus(self):
+    def test___getStaStatus(self):
+    	# test valid messages
+    	self.assertEqual(self.sta.today, datetime(2014, 3, 15, 0, 0))
+
+		# TODO: test invalid messages
         
 
-    # def test___getMessageFromStaRss(self):
+    # TODO: def test___getMessageFromStaRss(self):
 
 
-# class StaCalTester(unittest.TestCase):
+# TODO: class StaCalTester(unittest.TestCase):
 #     def test_init(self):
 
 #     def test_write(self):

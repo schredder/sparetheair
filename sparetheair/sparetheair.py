@@ -34,9 +34,10 @@ class SpareTheAir:
         soup = BeautifulSoup(r.text)
         divs = soup.find_all(class_='aq12')
         builddate = soup.find('date')
-        message = builddate.find_next_sibling('description').text
         day = datetime.strptime(builddate.text, '%A, %B %d, %Y')
-
+        
+        message = builddate.find_next_sibling('description').text
+        if message == None: raise ValueError('RSS Message is empty.')
         return (day, message)
 
 class StaCal:

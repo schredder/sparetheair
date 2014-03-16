@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# Runs unit tests
+
+python -m unittest discover -v
