@@ -1,12 +1,22 @@
-sparetheair
-===========
+# sparetheair
 
 A tool to publish SF Bay Area Spare The Air data as an ical
 
-So far, it will return the status of spare the air for today:
-```
-$ ./sparetheair.py
-On 2013-12-23, a spare the air day is in effect: True
-```
+It reads the RSS Feed: http://www.baaqmd.gov/Feeds/AlertRSS.aspx
+...and puts it into an iCal file.
 
-...but eventually, I would like it to scrape data daily and publish an ical.
+I run this daily, copy the iCal file onto a personal web server, and subscribe to it using OS X's and iOS's Calendar
+
+## Usage
+Run `bin/sparetheair`
+
+## Requirements
+* Tested using Python 2.7.6
+* External Modules:
+    * requests
+    * rfc3987
+    * bs4
+    * icalendar
+
+## TODO:
+* Factor out RSS URL and iCal file to external config file
